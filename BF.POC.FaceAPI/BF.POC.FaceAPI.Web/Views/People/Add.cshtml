@@ -1,0 +1,14 @@
+﻿@model BF.POC.FaceAPI.Web.Models.PersonViewModel
+
+@{
+    ViewBag.Title = "People > Add a new Person";
+}
+
+@using (Html.BeginForm("Add", "People", FormMethod.Post))
+{
+    @Html.Partial("_CreateUpdate", Model)
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/bffaceapi-people")
+}

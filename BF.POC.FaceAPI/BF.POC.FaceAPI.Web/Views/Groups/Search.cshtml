@@ -1,0 +1,37 @@
+﻿@model BF.POC.FaceAPI.Web.Models.GroupViewModel
+
+@{
+    ViewBag.Title = "Group > Search for a Person";
+}
+
+
+<div class="row align-items-center">
+    <div class="col-6">
+        <h5>Search in @Model.Name</h5>
+    </div>
+    <div id="PanelSearch" class="col-6 text-right d-none">
+        <button id="Search" class="btn btn-dark" type="button">Search</button>
+        <button id="Restart" class="btn btn-info" type="button">Restart</button>
+        @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-warning" })
+    </div>
+</div>
+
+<hr />
+
+<div id="ImageSelector" class="form-group d-none">
+    @Html.Partial("_ImageSelector")
+</div>
+
+<div id="ImageDisplayer" class="form-group d-none">
+    @Html.Partial("_ImageDisplayerWithTable")
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/bffaceapi-groups")
+
+    <script type="text/javascript">
+        $(function () {
+            bf.faceapi.groups.startSearch();
+        });
+    </script>
+}

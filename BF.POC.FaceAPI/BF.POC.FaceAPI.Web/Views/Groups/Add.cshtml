@@ -1,0 +1,14 @@
+﻿@model BF.POC.FaceAPI.Web.Models.GroupViewModel
+
+@{
+    ViewBag.Title = "Group > Add a new Group";
+}
+
+@using (Html.BeginForm("Add", "Groups", FormMethod.Post))
+{
+    @Html.Partial("_CreateUpdate", Model)
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/bffaceapi-groups")
+}

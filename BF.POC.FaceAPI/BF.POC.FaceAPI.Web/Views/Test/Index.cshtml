@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Test";
+}
+
+<div class="row align-items-center">
+    <div class="col-6">
+        <h5>Analize faces in an image</h5>
+    </div>
+    <div id="PanelAnalize" class="col-6 text-right d-none">
+        <button id="Analize" class="btn btn-dark" type="button">Analize</button>
+        @Html.ActionLink("Restart", "Index", null, new { @class = "btn btn-warning" })
+    </div>
+</div>
+
+<hr />
+
+<div id="ImageSelector" class="form-group d-none">
+    @Html.Partial("_ImageSelector")
+</div>
+
+<div id="ImageDisplayer" class="form-group d-none">
+    @Html.Partial("_ImageDisplayerWithInfo")
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/bffaceapi-test")
+
+    <script type="text/javascript">
+        $(function () {
+            bf.faceapi.test.start();
+        });
+    </script>
+}

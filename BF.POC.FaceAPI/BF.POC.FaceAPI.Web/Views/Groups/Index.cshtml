@@ -1,0 +1,40 @@
+﻿@model BF.POC.FaceAPI.Web.Models.GroupListViewModel
+
+@{
+    ViewBag.Title = "Groups";
+}
+
+@Html.ActionLink("Add a new Group", "Add", null, new { @class = "btn btn-sm btn-dark", role = "button" })
+
+<hr />
+
+<table class="table table-sm table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Code</th>
+            <th scope="col">Name</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var group in Model.List)
+        {
+            <tr>
+                <th scope="row">@group.Id</th>
+                <td>@group.Code</td>
+                <td>@group.Name</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = group.Id }, new { @class = "btn btn-sm btn-info", role = "button" })
+                    @Html.ActionLink("View People", "Index", "People", new { groupId = group.Id }, new { @class = "btn btn-sm btn-secondary", role = "button" })
+                    @Html.ActionLink("View Faces", "Index", "Faces", new { groupId = group.Id }, new { @class = "btn btn-sm btn-secondary", role = "button" })
+                    @Html.ActionLink("Search for a Person", "Search", new { id = group.Id }, new { @class = "btn btn-sm btn-success", role = "button" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts {
+    @Scripts.Render("~/bundles/bffaceapi-groups")
+}

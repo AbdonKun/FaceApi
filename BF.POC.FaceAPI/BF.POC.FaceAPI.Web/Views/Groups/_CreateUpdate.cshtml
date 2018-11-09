@@ -1,0 +1,20 @@
+﻿@model BF.POC.FaceAPI.Web.Models.GroupViewModel
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Code)
+    @Html.TextBoxFor(m => m.Code, Model.Id > 0 ? (object)new { @class = "form-control", @readonly = "readonly"} : (object)new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Code, null, new { @class = "text-danger" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Name, null, new {@class = "text-danger"})
+</div>
+
+<div class="form-group">
+    <button type="submit" class="btn btn-primary">Save</button>
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-warning"})
+</div>
+
+@Html.ValidationSummary(true, null, new { @class = "text-danger" })

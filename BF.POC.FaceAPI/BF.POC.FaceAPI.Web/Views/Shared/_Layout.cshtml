@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="/favicon.ico" type="image/png" rel="icon" />
+        <link href="/favicon.ico" type="image/png" rel="shortcut icon" />
+
+        <title>Baufest | POC - Face API >> @ViewBag.Title</title>
+
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="https://www.baufest.com/en/" target="_blank">
+                <img src="~/Images/Logo-Company.png" width="126" height="42" alt="Company" />
+            </a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <span class="navbar-text bf-title"><a href="/">POC - Face API</a></span>
+                </li>
+            </ul>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-main" aria-controls="nav-main" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="nav-main">
+                <ul class="navbar-nav mr-auto">
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">
+                        @Html.ActionLink("Home", "Index", "Home", new { }, new { @class = "nav-link" })
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Groups" ? "active" : "")">
+                        @Html.ActionLink("Groups", "Index", "Groups", new { }, new { @class = "nav-link" })
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "People" ? "active" : "")">
+                        @Html.ActionLink("People", "Index", "People", new { }, new { @class = "nav-link" })
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Faces" ? "active" : "")">
+                        @Html.ActionLink("Faces", "Index", "Faces", new { }, new { @class = "nav-link" })
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Test" ? "active" : "")">
+                        @Html.ActionLink("Test", "Index", "Test", new { }, new { @class = "nav-link" })
+                    </li>
+                </ul>
+                <span class="navbar-text d-none d-md-block">
+                    <a href="http://cl.netconf.global/" target="_blank">
+                        <img src="~/Images/Logo-Event.png" width="40" height="40" alt="Event" />
+                        <span class="bf-event font-weight-bold">.NET Conf CL v2018</span>
+                    </a>
+                </span>
+            </div>
+        </nav>
+
+        <main role="main" class="container">
+            @RenderBody()
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-9 col-sm-6 offset-sm-3"><span class="text-muted">© @(DateTime.Now.Year) Baufest. All rights reserved.</span></div>
+                    <div class="col-3 text-right">
+                        <a href="https://azure.microsoft.com/en-us/services/cognitive-services/" target="_blank" title="Powered by Microsoft Azure Cognitive Services">
+                            <span class="d-lg-none">By MACS</span>
+                            <span class="d-none d-lg-block">Powered by Microsoft Azure Cognitive Services</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/popper")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/bffaceapi")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

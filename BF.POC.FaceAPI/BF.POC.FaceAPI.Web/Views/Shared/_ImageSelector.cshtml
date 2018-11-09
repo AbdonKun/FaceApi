@@ -1,0 +1,60 @@
+﻿<ul class="nav nav-tabs" id="ImageSelectorTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="url-tab" data-toggle="tab" href="#url" role="tab" aria-controls="url" aria-selected="true">By URL</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="data-tab" data-toggle="tab" href="#data" role="tab" aria-controls="data" aria-selected="false">By Data</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="local-tab" data-toggle="tab" href="#local" role="tab" aria-controls="local" aria-selected="false">By Local Image</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="webcam-tab" data-toggle="tab" href="#webcam" role="tab" aria-controls="webcam" aria-selected="false">By Webcam</a>
+    </li>
+</ul>
+
+<div class="tab-content" id="ImageSelectorTabContent">
+    <div class="tab-pane fade show active" id="url" role="tabpanel" aria-labelledby="url-tab">
+        <div class="form-group">
+            <div class="input-group">
+                <input id="FieldURL" type="text" class="form-control" placeholder="Url" />
+                <div class="input-group-append">
+                    <button id="ButtonURL" type="button" data-field="#FieldURL" class="btn btn-primary">Load</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="data" role="tabpanel" aria-labelledby="data-tab">
+        <div class="form-group">
+            <textarea id="FieldData" type="text" class="form-control" placeholder="Image Data" rows="7"></textarea>
+        </div>
+        <div class="form-group float-right">
+            <button id="ButtonData" type="button" data-field="#FieldData" class="btn btn-primary">Load</button>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="local" role="tabpanel" aria-labelledby="local-tab">
+        <div id="DropLocal" class="drop-zone" ondrop="bf.faceapi.components.loadFileDrop(event);">
+            <label class="font-weight-bold text-center w-100">
+                Drag a file or click to select one <input id="FieldLocal" type="file" />
+            </label>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="webcam" role="tabpanel" aria-labelledby="webcam-tab">
+        <div class="row">
+            <div class="col-12 col-md-7">
+                <div id="VideoPlayerContainer">
+                    <video id="VideoPlayer" class="w-100" autoplay></video>
+                </div>
+            </div>
+            <div class="col-12 col-md-5">
+                <div class="form-group text-center">
+                    <button id="ButtonWebcam" type="button" data-field="#FieldData" class="btn btn-primary">Take Snapshot</button>
+                </div>
+                <p id="MessageWebcam" class="text-danger text-center"></p>
+            </div>
+        </div>
+    </div>
+</div>

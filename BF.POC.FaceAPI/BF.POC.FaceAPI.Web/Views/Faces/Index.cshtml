@@ -1,0 +1,58 @@
+﻿@model BF.POC.FaceAPI.Web.Models.FaceListViewModel
+
+@{
+    ViewBag.Title = "Faces";
+}
+
+@Html.ActionLink("Add a new Face", "Add", new { personId = Request.Params["personId"], groupId = Request.Params["groupId"] }, new { @class = "btn btn-sm btn-dark", role = "button" })
+@Html.ActionLink("View People", "Index", "People", new { groupId = Request.Params["groupId"] }, new { @class = "btn btn-sm btn-secondary", role = "button" })
+
+<hr />
+
+<table id="FaceList" class="table table-sm table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Group</th>
+            <th scope="col">Person</th>
+            <th scope="col">Face ID</th>
+            <th scope="col" class="text-center">Face</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var face in Model.List)
+        {
+            <tr data-toggle="modal" data-target="#ImageModal">
+                <th scope="row">@face.Id</th>
+                <td>@face.Person.Group.Name</td>
+                <td class="fullname">@face.Person.Fullname</td>
+                <td>@face.APIFaceId</td>
+                <td class="text-center"><img src="data:image/jpg;base64,@Convert.ToBase64String(face.Photo)" height="50" border="0" alt="" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="ImageModal" tabindex="-1" role="dialog" aria-labelledby="ImageModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="ImageModalTitle">Face Detail</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="ImageModalContainer" class="modal-body"></div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/bffaceapi-faces")
+
+    <script type="text/javascript">
+        $(function () {
+            bf.faceapi.faces.startList();
+        });
+    </script>
+}

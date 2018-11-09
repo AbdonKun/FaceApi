@@ -1,0 +1,43 @@
+﻿@model BF.POC.FaceAPI.Web.Models.PersonListViewModel
+
+@{
+    ViewBag.Title = "People";
+}
+
+@Html.ActionLink("Add a new Person", "Add", new { groupId = Request.Params["groupId"] }, new { @class = "btn btn-sm btn-dark", role = "button" })
+@Html.ActionLink("View Groups", "Index", "Groups", null, new { @class = "btn btn-sm btn-secondary", role = "button" })
+
+<hr />
+
+<table class="table table-sm table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Group</th>
+            <th scope="col">Person ID</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model.List)
+        {
+        <tr>
+            <th scope="row">@person.Id</th>
+            <td>@person.Name</td>
+            <td>@person.Lastname</td>
+            <td>@person.Group.Name</td>
+            <td>@person.APIPersonId</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = person.Id, groupId = Request.Params["groupId"] }, new { @class = "btn btn-sm btn-info", role = "button" })
+                @Html.ActionLink("View Faces", "Index", "Faces", new { personId = person.Id, groupId = Request.Params["groupId"] }, new { @class = "btn btn-sm btn-secondary", role = "button" })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts {
+    @Scripts.Render("~/bundles/bffaceapi-people")
+}

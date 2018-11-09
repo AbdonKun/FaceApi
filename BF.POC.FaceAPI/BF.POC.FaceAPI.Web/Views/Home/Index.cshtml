@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div class="jumbotron">
+    <h1>POC - Face API</h1>
+    <p class="lead">This POC was build using the APIs provided by Microsoft Azure Cognitive Services</p>
+    <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236" target="_blank" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h2>Setup your first Face Recognition application</h2>
+        <p>Create a new group to manage your team, add people to the group, then add some photos to each person, and finally try to recognize them uploading new photo from the Groups page.</p>
+        @Html.ActionLink("Start now »", "Index", "Groups", null, new { @class = "btn btn-default" })
+    </div>
+    <div class="col-md-4">
+        <h2>Play with Face API</h2>
+        <p>You can easily play with Face API through the test page provided in current solution.</p>
+        @Html.ActionLink("Let's play »", "Index", "Test", null, new { @class = "btn btn-default" })
+    </div>
+</div>

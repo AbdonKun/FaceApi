@@ -1,0 +1,15 @@
+﻿@model BF.POC.FaceAPI.Web.Models.GroupViewModel
+
+@{
+    ViewBag.Title = "Group > Edit a Group";
+}
+
+@using (Html.BeginForm("Edit", "Groups"))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    @Html.Partial("_CreateUpdate", Model)
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/bffaceapi-groups")
+}
