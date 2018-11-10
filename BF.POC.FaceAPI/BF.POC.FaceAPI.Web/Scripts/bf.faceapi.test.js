@@ -23,7 +23,7 @@ bf.faceapi.test = {
         $('#FieldLocal').on('change', bf.faceapi.test.loadFile);
         $('#ButtonWebcam').on('click', bf.faceapi.test.takeSnapshot);
 
-        $('#Analize').on('click', bf.faceapi.test.analize);
+        $('#Analyze').on('click', bf.faceapi.test.analyze);
     },
 
     reset: function (e) {
@@ -108,10 +108,10 @@ bf.faceapi.test = {
     setPhotoReady: function () {
         $('#ImageSelector').addClass('d-none');
         $('#ImageDisplayer').removeClass('d-none');
-        $('#PanelAnalize').removeClass('d-none');
+        $('#PanelAnalyze').removeClass('d-none');
     },
 
-    analize: function (e) {
+    analyze: function (e) {
         e.preventDefault();
         e.stopPropagation();
 
@@ -120,7 +120,7 @@ bf.faceapi.test = {
         var data = new FormData();
         data.append('IMAGE', image);
 
-        $('#PanelAnalize').addClass('d-none');
+        $('#PanelAnalyze').addClass('d-none');
         $('#Message').addClass('d-none');
         $("#InfoContainer").addClass('d-none');
         $('#Analyzing').removeClass('d-none');
@@ -136,14 +136,14 @@ bf.faceapi.test = {
         })
             .done(function (data) {
                 $('#Analyzing').addClass('d-none');
-                $('#PanelAnalize').removeClass('d-none');
+                $('#PanelAnalyze').removeClass('d-none');
 
                 bf.faceapi.test.showAnalisysInfo(data);
             })
 
             .fail(function (jqXHR, textStatus, errorThrown) {
                 $('#Analyzing').addClass('d-none');
-                $('#PanelAnalize').removeClass('d-none');
+                $('#PanelAnalyze').removeClass('d-none');
 
                 $('#Message')
                     .html('Ups! Something went wrong.<br/>Please try again in a few minutes...')
