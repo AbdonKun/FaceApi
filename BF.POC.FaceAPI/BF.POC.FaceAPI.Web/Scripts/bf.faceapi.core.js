@@ -60,9 +60,9 @@ bf.faceapi.core = {
             });
     },
 
-    takeSnapshot: function (video, imageContainer, success, error) {
+    takeSnapshot: function (video, container, success, error) {
         if (typeof InstallTrigger !== 'undefined' || !!window.StyleMedia) { //isFirefox || isEdge
-            bf.faceapi.core.renderImage(video.player, video.player.videoWidth, video.player.videoHeight);
+            bf.faceapi.core.renderImage(video.player, video.player.videoWidth, video.player.videoHeight, container);
 
             video.stream.getVideoTracks()[0].stop();
 
@@ -74,7 +74,7 @@ bf.faceapi.core = {
                 .then(image => {
                     video.stream.getVideoTracks()[0].stop();
 
-                    bf.faceapi.core.renderImage(image, image.width, image.height);
+                    bf.faceapi.core.renderImage(image, image.width, image.height, container);
 
                     success();
                 })
