@@ -25,7 +25,7 @@ Hecha esta breve introducción, pasemos a trabajar en la implementación de la P
 
 ## Pre-requisitos
 :point_right: Antes de comenzar, es necesario que validemos algunos pocos requisitos previos:
-- Tener instalado **Visual Studio 2015**, o alguna versión superior.
+- Tener instalado **Visual Studio 2017**, o alguna versión superior.
 - Tener instalado **.Net Framework 4.6.2** en nuestro entorno de desarrollo.
 - Para que la aplicación funcione correctamente es necesario contar con una Base de Datos. Si bien te recomendamos SQL Server, podés utilizar cualquier otro motor siempre y cuando modifiques la capa Repository de la solución.
   - Si vas a utilizar SQL Server, o SQL Azure, te recomendamos que instales [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)
